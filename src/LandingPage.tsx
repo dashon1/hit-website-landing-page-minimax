@@ -15,10 +15,10 @@ const LandingPage = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const URLS = {
-    ios: "https://apps.apple.com/app/hit-health-immune-tracker",
-    android: "https://play.google.com/store/apps/details?id=com.hitapp.healthtracker",
-    signup: "https://hitapp.com/signup",
-    website: "https://hitapp.com"
+    ios: "#pricing",
+    android: "#pricing",
+    signup: "#pricing",
+    website: "#pricing"
   };
 
   const trackClick = (label: string) => {
@@ -28,7 +28,11 @@ const LandingPage = () => {
 
   const handleExternalRedirect = (url: string, label: string) => {
     trackClick(label);
-    window.open(url, '_blank');
+    if (url.startsWith('#')) {
+      scrollToSection(url.slice(1));
+    } else {
+      window.open(url, '_blank');
+    }
   };
 
   const scrollToSection = (id: string) => {
@@ -199,7 +203,7 @@ const LandingPage = () => {
                 >
                   Start Free Trial <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button variant="outline" className="h-14 px-8 border-white/20 hover:bg-white/10 text-white text-lg rounded-full w-full sm:w-auto">
+                <Button variant="outline" className="h-14 px-8 border-white/20 hover:bg-white/10 text-white text-lg rounded-full w-full sm:w-auto" onClick={() => scrollToSection('how-it-works')}>
                   Watch Demo
                 </Button>
               </motion.div>
@@ -541,7 +545,7 @@ const LandingPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-secondary/20">
+      <section id="faq" className="py-24 bg-secondary/20">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
@@ -577,27 +581,27 @@ const LandingPage = () => {
             <div>
               <h4 className="font-bold text-white mb-6">Product</h4>
               <ul className="space-y-3 text-gray-500">
-                <li><a href="#" className="hover:text-primary">Features</a></li>
-                <li><a href="#" className="hover:text-primary">Security</a></li>
-                <li><a href="#" className="hover:text-primary">Enterprise</a></li>
-                <li><a href="#" className="hover:text-primary">Pricing</a></li>
+                <li><button onClick={() => scrollToSection('features')} className="hover:text-primary">Features</button></li>
+                <li><button onClick={() => scrollToSection('features')} className="hover:text-primary">Security</button></li>
+                <li><button onClick={() => scrollToSection('pricing')} className="hover:text-primary">Enterprise</button></li>
+                <li><button onClick={() => scrollToSection('pricing')} className="hover:text-primary">Pricing</button></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-white mb-6">Resources</h4>
               <ul className="space-y-3 text-gray-500">
-                <li><a href="#" className="hover:text-primary">Blog</a></li>
-                <li><a href="#" className="hover:text-primary">Success Stories</a></li>
-                <li><a href="#" className="hover:text-primary">Help Center</a></li>
-                <li><a href="#" className="hover:text-primary">Contact</a></li>
+                <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-primary">How it Works</button></li>
+                <li><button onClick={() => scrollToSection('testimonials')} className="hover:text-primary">Success Stories</button></li>
+                <li><button onClick={() => scrollToSection('faq')} className="hover:text-primary">Help Center</button></li>
+                <li><a href="mailto:info@aimicrotechlink.com" className="hover:text-primary">Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-white mb-6">Legal</h4>
               <ul className="space-y-3 text-gray-500">
-                <li><a href="#" className="hover:text-primary">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-primary">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-primary">Medical Disclaimer</a></li>
+                <li><a href="https://aimicrotechlink.com/privacy" target="_blank" rel="noreferrer" className="hover:text-primary">Privacy Policy</a></li>
+                <li><a href="https://aimicrotechlink.com/privacy" target="_blank" rel="noreferrer" className="hover:text-primary">Terms of Service</a></li>
+                <li><button onClick={() => scrollToSection('faq')} className="hover:text-primary">Medical Disclaimer</button></li>
               </ul>
             </div>
           </div>
