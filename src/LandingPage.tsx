@@ -15,10 +15,7 @@ const LandingPage = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const URLS = {
-    ios: "#pricing",
-    android: "#pricing",
-    signup: "#pricing",
-    website: "#pricing"
+    app: "https://hit-real.vercel.app",
   };
 
   const trackClick = (label: string) => {
@@ -72,7 +69,7 @@ const LandingPage = () => {
     {
       icon: <Lock className="w-8 h-8 text-primary" />,
       title: "Privacy Secured",
-      desc: "Your health data is encrypted and fully under your control."
+      desc: "Your health data stays on your device. Nothing stored on external servers."
     }
   ];
 
@@ -117,7 +114,7 @@ const LandingPage = () => {
             <button onClick={() => scrollToSection('pricing')} className="hover:text-primary transition-colors">Pricing</button>
             <Button 
               className="bg-primary hover:bg-primary/90 text-background font-bold px-6 rounded-full"
-              onClick={() => handleExternalRedirect(URLS.ios, 'Nav Get App')}
+              onClick={() => handleExternalRedirect(URLS.app, 'Nav Get App')}
             >
               Get App
             </Button>
@@ -142,7 +139,7 @@ const LandingPage = () => {
               <button onClick={() => scrollToSection('testimonials')} className="text-left text-lg hover:text-primary">Stories</button>
               <Button 
                 className="bg-primary text-background font-bold w-full mt-4"
-                onClick={() => handleExternalRedirect(URLS.ios, 'Mobile Menu Download App')}
+                onClick={() => handleExternalRedirect(URLS.app, 'Mobile Menu Download App')}
               >
                 Download App
               </Button>
@@ -197,31 +194,31 @@ const LandingPage = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
               >
-                <Button 
+                <Button
                   className="h-14 px-8 bg-primary hover:bg-primary/90 text-background text-lg font-bold rounded-full w-full sm:w-auto transition-all shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:shadow-[0_0_30px_rgba(0,243,255,0.5)]"
-                  onClick={() => handleExternalRedirect(URLS.signup, 'Hero Start Free Trial')}
+                  onClick={() => handleExternalRedirect(URLS.app, 'Hero Launch App')}
                 >
-                  Start Free Trial <ArrowRight className="ml-2 w-5 h-5" />
+                  Launch HIT Free <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button variant="outline" className="h-14 px-8 border-white/20 hover:bg-white/10 text-white text-lg rounded-full w-full sm:w-auto" onClick={() => scrollToSection('how-it-works')}>
-                  Watch Demo
+                  See How It Works
                 </Button>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
                 className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-gray-500 text-sm font-medium"
               >
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-accent" /> HIPAA Compliant
+                  <Shield className="w-4 h-4 text-accent" /> Data Stays On Device
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-accent" /> WCAG 2.2 Accessible
+                  <Check className="w-4 h-4 text-accent" /> No Account Required
                 </div>
                 <div className="flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-accent" /> Encrypted Data
+                  <Lock className="w-4 h-4 text-accent" /> Private by Design
                 </div>
               </motion.div>
             </div>
@@ -523,23 +520,23 @@ const LandingPage = () => {
           <div className="bg-gradient-to-r from-secondary to-background border border-white/10 rounded-3xl p-12 lg:p-20 text-center shadow-2xl max-w-4xl mx-auto">
             <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-white">Ready to take control?</h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Join thousands of users optimizing their health with HIT. Start your 14-day free trial today.
+              Start using HIT right now — no download, no account required. Early access lifetime pricing available.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
+              <Button
                 className="h-16 px-10 bg-white text-background hover:bg-gray-100 text-xl font-bold rounded-full w-full sm:w-auto"
-                onClick={() => handleExternalRedirect(URLS.ios, 'Pricing iOS Download')}
+                onClick={() => handleExternalRedirect(URLS.app, 'Pricing Launch App')}
               >
-                Download for iOS
+                Launch HIT Now
               </Button>
-              <Button 
+              <Button
                 className="h-16 px-10 bg-transparent border-2 border-white text-white hover:bg-white/10 text-xl font-bold rounded-full w-full sm:w-auto"
-                onClick={() => handleExternalRedirect(URLS.android, 'Pricing Android Download')}
+                onClick={() => scrollToSection('pricing')}
               >
-                Download for Android
+                View Pricing
               </Button>
             </div>
-            <p className="mt-6 text-sm text-gray-500">No credit card required for free tier.</p>
+            <p className="mt-6 text-sm text-gray-500">Works in any browser. No install required.</p>
           </div>
         </div>
       </section>
@@ -553,10 +550,10 @@ const LandingPage = () => {
           
           <div className="space-y-6">
             {[
-              { q: "Is my health data secure?", a: "Yes, HIT uses end-to-end encryption and is fully HIPAA compliant. Your data is yours and is never sold to third parties." },
+              { q: "Is my health data secure?", a: "Yes. All your data is stored locally on your device — nothing is sent to external servers or sold to third parties. Your data is fully under your control." },
               { q: "How does the Safety Beacon work?", a: "With one tap, Safety Beacon sends an alert to your designated contacts with your location and critical medical info. It also features a 'Home Alone' check-in mode." },
               { q: "Does HIT replace my doctor?", a: "No. HIT is a tool to help you manage your health and provide better data to your healthcare team. Always consult with professionals for medical decisions." },
-              { q: "Is there a free version?", a: "Yes! HIT offers a robust free tier including medication tracking and basic symptom logging. Premium unlocks AI insights and unlimited Sonic Therapy." }
+              { q: "How much does HIT cost?", a: "HIT is available as a lifetime one-time purchase starting at $79. Early access pricing is limited — get in now before the price increases." }
             ].map((faq, idx) => (
               <div key={idx} className="bg-background border border-white/5 rounded-xl p-6 hover:border-primary/30 transition-colors">
                 <h3 className="text-lg font-bold text-white mb-2">{faq.q}</h3>
